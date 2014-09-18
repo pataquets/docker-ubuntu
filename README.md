@@ -1,4 +1,4 @@
-docker-ubuntu-base
-==================
+docker-ubuntu
+=============
 
-Ubuntu Trusty base Dockerfile
+Ubuntu base Dockerfile

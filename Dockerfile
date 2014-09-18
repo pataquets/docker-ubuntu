@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ubuntu:latest
 
 # Use a local APT caching proxy, if available
 ADD ./etc/apt/ /etc/apt/
