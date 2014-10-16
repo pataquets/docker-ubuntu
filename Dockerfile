@@ -5,7 +5,7 @@ ADD ./etc/apt/ /etc/apt/
 
 RUN DEBIAN_FRONTEND=noninteractive \
 	apt-get update && \
-	apt-get -y install apt-transport-https && \
+	apt-get -y install apt-transport-https netcat && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
 
