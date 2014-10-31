@@ -11,6 +11,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
 
 RUN DEBIAN_FRONTEND=noninteractive \
 	apt-get update && \
+	apt-get -y install bash-completion && \
 	apt-get -y upgrade && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
