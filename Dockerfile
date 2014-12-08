@@ -3,18 +3,21 @@ FROM ubuntu:precise
 # Use a local APT caching proxy, if available
 ADD ./etc/apt/ /etc/apt/
 
-RUN DEBIAN_FRONTEND=noninteractive \
+RUN \
 	apt-get update && \
-	apt-get -y install apt-transport-https netcat && \
+	DEBIAN_FRONTEND=noninteractive \
+		apt-get -y install apt-transport-https netcat && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
 
-RUN DEBIAN_FRONTEND=noninteractive \
+RUN \
 	apt-get update && \
-	apt-get -y install \
-		apt-utils \
-		bash-completion \
+	DEBIAN_FRONTEND=noninteractive \
+		apt-get -y install \
+			apt-utils \
+			bash-completion \
 	&& \
-	apt-get -y upgrade && \
+	DEBIAN_FRONTEND=noninteractive \
+		apt-get -y upgrade && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
