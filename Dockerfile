@@ -23,4 +23,11 @@ RUN \
   rm -rf /var/lib/apt/lists/* && \
   rm -v \
     /etc/ssl/certs/ssl-cert-snakeoil.pem \
-    /etc/ssl/private/ssl-cert-snakeoil.key
+    /etc/ssl/private/ssl-cert-snakeoil.key \
+  && \
+  mkdir -vp /var/log/symlinks/dev/ && \
+  mkdir -vp /var/log/symlinks/proc/self/fd && \
+  ln -s /dev/stdout /var/log/symlinks/dev/stdout && \
+  ln -s /dev/stderr /var/log/symlinks/dev/stderr && \
+  ln -s /proc/self/fd/1 /var/log/symlinks/proc/self/fd/1 && \
+  ln -s /proc/self/fd/2 /var/log/symlinks/proc/self/fd/2
