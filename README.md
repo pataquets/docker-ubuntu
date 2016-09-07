@@ -1,4 +1,4 @@
 docker-ubuntu-base
 ==================
 
-Ubuntu Trusty base Dockerfile
+Ubuntu Xenial base Dockerfile
