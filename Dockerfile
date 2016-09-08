@@ -15,6 +15,7 @@ RUN \
   DEBIAN_FRONTEND=noninteractive \
     apt-get -y install \
       bash-completion \
+      netcat-traditional \
       ssl-cert \
   && \
   cat /etc/bash_completion | tee /etc/bash.bashrc && \
