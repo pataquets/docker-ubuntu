@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 
 # Use a local APT caching proxy, if available
 ADD ./etc/apt/ /etc/apt/
