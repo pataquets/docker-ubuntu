@@ -50,6 +50,8 @@ RUN \
     /etc/ssl/certs/ssl-cert-snakeoil.pem \
     /etc/ssl/private/ssl-cert-snakeoil.key \
   && \
+  find /etc/ssl/ -xtype l -delete -print \
+  && \
   mkdir -vp /var/log/symlinks/dev/ && \
   mkdir -vp /var/log/symlinks/proc/self/fd && \
   ln -s /dev/stdout /var/log/symlinks/dev/stdout && \
