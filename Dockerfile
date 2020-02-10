@@ -22,6 +22,14 @@ ADD ./etc/apt/ /etc/apt/
 RUN \
   apt-get update && \
   DEBIAN_FRONTEND=noninteractive \
+    apt-get -y upgrade \
+  && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
+
+RUN \
+  apt-get update && \
+  DEBIAN_FRONTEND=noninteractive \
     apt-get -y install \
       bash-completion \
   && \
@@ -35,8 +43,6 @@ RUN \
       ssl-cert \
   && \
   cat /etc/bash_completion | tee /etc/bash.bashrc && \
-  DEBIAN_FRONTEND=noninteractive \
-    apt-get -y upgrade && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* \
   && \
