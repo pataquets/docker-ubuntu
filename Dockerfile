@@ -24,14 +24,22 @@ RUN \
   DEBIAN_FRONTEND=noninteractive \
     apt-get -y install \
       bash-completion \
-      netcat-traditional \
+  && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
+
+RUN \
+  apt-get update && \
+  DEBIAN_FRONTEND=noninteractive \
+    apt-get -y install \
       ssl-cert \
   && \
   cat /etc/bash_completion | tee /etc/bash.bashrc && \
   DEBIAN_FRONTEND=noninteractive \
     apt-get -y upgrade && \
   apt-get clean && \
-  rm -rf /var/lib/apt/lists/* && \
+  rm -rf /var/lib/apt/lists/* \
+  && \
   rm -v \
     /etc/ssl/certs/ssl-cert-snakeoil.pem \
     /etc/ssl/private/ssl-cert-snakeoil.key \
