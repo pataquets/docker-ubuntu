@@ -1,14 +1,23 @@
 FROM ubuntu:bionic
 
-# Use a local APT caching proxy, if available
-ADD ./etc/apt/ /etc/apt/
-
 RUN \
   apt-get update && \
   DEBIAN_FRONTEND=noninteractive \
     apt-get -y install apt-transport-https && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
+
+RUN \
+  apt-get update && \
+  DEBIAN_FRONTEND=noninteractive \
+    apt-get -y install \
+      netcat-traditional \
+  && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
+
+# Use a local APT caching proxy, if available
+ADD ./etc/apt/ /etc/apt/
 
 RUN \
   apt-get update && \
